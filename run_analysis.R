@@ -1,5 +1,5 @@
 # download the file if not existed
-filename <- "Coursera_DS3_Final.zip"
+filename <- "CleanData.zip"
 
 # Checking if archieve already exists.
 if (!file.exists(filename)){
@@ -26,10 +26,10 @@ y_train <- read.table("UCI HAR Dataset/train/y_train.txt", col.names = "code")
 
 #bind data together
 
-X<- rbind(x_train, x_test)
-Y <- rbind(y_train, y_test)
+X_set<- rbind(x_train, x_test)
+Y_set <- rbind(y_train, y_test)
 Subject <- rbind(subject_train, subject_test)
-Merged_Data <- cbind(Subject, Y, X)
+Merged_Data <- cbind(Subject, Y_set, X_set)
 
 # get data with mean, deviation only
 TidyData <- Merged_Data %>% select(subject, code, contains("mean"), contains("std"))
